@@ -155,7 +155,7 @@
             </div>
 
             <button class="btn btn-secondary">Resetar</button>
-            <button class="btn btn-success">Enviar</button>
+            <button class="btn btn-success" type="button" @click="enviar">Enviar</button>
 
           </form>
 
@@ -234,6 +234,12 @@ export default {
         'Desenvolvedor Back End',
         'Desenvolvedor Full Stack',
       ]
+    }
+  },
+  methods:{
+    enviar(event){
+      const formularioEnviado = Object.assign({}, this.formulario)
+      console.log('Formulário enviado!',  formularioEnviado)
     }
   }
 }
