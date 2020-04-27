@@ -78,10 +78,15 @@
               <label>Ocupação:</label>
               <select class="form-control" placeholder="Seu email" v-model="formulario.ocupacao">
                 <option disabled>Selecione uma opção...</option>
-                <option>Pensionista</option>
-                <option>Funcionário Privado</option>
-                <option>Dor Lar</option>
-                <option>Profissional Liberal</option>
+                <option 
+                v-for = "(ocupacao, indice) in ocupacoes"
+                :key="indice"
+                :value="ocupacao"
+                :selected = "ocupacao==='Desenvolvedor Back End'">
+                
+                {{ocupacao}}
+
+                </option>
               </select>
             </div>  
 
@@ -194,7 +199,7 @@
             <div class="card-header">Model</div>
 
             <div class="card-body">
-              <pre><code> {{ {'nome': formulario } }} </code></pre>
+              <pre><code> {{ formulario }} </code></pre>
             </div>
 
           </div>
@@ -217,11 +222,18 @@ export default {
         email : '',
         idade : '',
         genero :'',
-        ocupacao: '',
+        ocupacao: 'Desenvolvedor Full Stack',
         tecnologias : [],
         resumoPerfil : '',
         receberNotificacao : 'Não',
-      }
+      },
+      ocupacoes:[
+        'Desenvolvedor Front (Web)',
+        'Desenvolvedor Front (Mobile)',
+        'Desenvolvedor Front (Web e Mobile)',
+        'Desenvolvedor Back End',
+        'Desenvolvedor Full Stack',
+      ]
     }
   }
 }
