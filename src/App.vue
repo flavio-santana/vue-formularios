@@ -141,7 +141,9 @@
                 <input 
                   type="checkbox" 
                   class="form-check-input" 
-                  v-model="formulario.receberNotificacao">
+                  v-model="formulario.receberNotificacao"
+                  true-value="Sim"
+                  false-value="Não">
                 <label class="form-check-label">Receber notificações por email</label>
               </div>
 
@@ -170,15 +172,21 @@
               <li class="list-group-item"><strong>Gênero:</strong> {{ formulario.genero }}</li>
               <li class="list-group-item"><strong>Ocupação:</strong> {{ formulario.ocupacao }} </li>
               <li class="list-group-item"><strong>Tecnologias:</strong> 
-                {{ formulario.tecnologias}}
+                <ul>
+                  <li
+                  v-for="(tecnologia, indice) in formulario.tecnologias"
+                  :key="indice">
+                  {{ tecnologia }}
+                  </li>
+                </ul>
               </li>
               <li class="list-group-item"><strong>Biografia:</strong> 
-                <pre>{{ formulario.resumoPerfil }}</pre>
+                <div style="white-space">{{ formulario.resumoPerfil }}</div>
               </li>
               
               <li class="list-group-item">
                 <strong>Receber notificações?</strong> 
-                {{ formulario.receberNotificacao ? 'Sim' : 'Não'}} 
+                {{ formulario.receberNotificacao}} 
               </li>
 
             </ul>
@@ -212,7 +220,7 @@ export default {
         ocupacao: '',
         tecnologias : [],
         resumoPerfil : '',
-        receberNotificacao : false,
+        receberNotificacao : 'Não',
       }
     }
   }
