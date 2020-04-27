@@ -154,7 +154,7 @@
 
             </div>
 
-            <button class="btn btn-secondary">Resetar</button>
+            <button class="btn btn-secondary" type="reset">Resetar</button>
             <button class="btn btn-success" type="button" @click="enviar">Enviar</button>
 
           </form>
