@@ -246,7 +246,7 @@ export default {
         tecnologias : [],
         resumoPerfil : '',
         receberNotificacao : 'Não',
-        salario:1000
+        salario: 1000
       },
       ocupacoes:[
         'Desenvolvedor Front (Web)',
