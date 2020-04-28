@@ -141,6 +141,16 @@
             </div>
 
             <div class="form-group">
+              <AppRange 
+                label="Salário pretendido:"
+                v-model.number="formulario.salario"
+                min="1000"
+                max="15000"
+                step="500"
+                inputClasses="form-control-range"/>
+            </div>
+
+            <div class="form-group">
 
               <div class="form-check form-check-inline">
                 <input 
@@ -188,6 +198,9 @@
               <li class="list-group-item"><strong>Biografia:</strong> 
                 <div style="white-space">{{ formulario.resumoPerfil }}</div>
               </li>
+              <li class="list-group-item"><strong>Salário pretendido:</strong> 
+                <div style="white-space">{{ formulario.salario }}</div>
+              </li>
               
               <li class="list-group-item">
                 <strong>Receber notificações?</strong> 
@@ -214,7 +227,14 @@
 </template>
 
 <script>
+
+// Importando um component
+import AppRange from './components/Range.vue'
+
 export default {
+  components:{
+    AppRange
+  },
   data(){
     return {
       formulario :{
@@ -226,6 +246,7 @@ export default {
         tecnologias : [],
         resumoPerfil : '',
         receberNotificacao : 'Não',
+        salario:1000
       },
       ocupacoes:[
         'Desenvolvedor Front (Web)',
